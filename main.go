@@ -74,16 +74,12 @@ func startTraining(charName, charClass string) string {
 		if err != nil {
 			return ""
 		}
-
-		if cmd == "attack" {
+		switch cmd {
+		case "attack":
 			fmt.Println(attack(charName, charClass))
-		}
-
-		if cmd == "defence" {
+		case "defence":
 			fmt.Println(defence(charName, charClass))
-		}
-
-		if cmd == "special" {
+		case "special":
 			fmt.Println(special(charName, charClass))
 		}
 	}
@@ -102,13 +98,15 @@ func choiceCharClass() string {
 		if err != nil {
 			return ""
 		}
-		if charClass == "warrior" {
+		switch charClass {
+		case "warrior":
 			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
-		} else if charClass == "mage" {
+		case "mage":
 			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
-		} else if charClass == "healer" {
+		case "healer":
 			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
 		}
+
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
 		_, err = fmt.Scanf("%s\n", &approveChoice)
 		if err != nil {
